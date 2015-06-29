@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-29 08:24+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../unattended-upgrade:160
+#, c-format
+msgid "Progress: %s %% (%s)"
+msgstr ""
+
+#: ../unattended-upgrade:398 ../unattended-upgrade:487
+#: ../unattended-upgrade-shutdown:161
+msgid "All upgrades installed"
+msgstr ""
+
+#: ../unattended-upgrade:400 ../unattended-upgrade:479
+msgid "Installing the upgrades failed!"
+msgstr ""
+
+#: ../unattended-upgrade:401 ../unattended-upgrade:480
+#, c-format
+msgid "error message: '%s'"
+msgstr ""
+
+#: ../unattended-upgrade:402 ../unattended-upgrade:481
+#, c-format
+msgid "dpkg returned a error! See '%s' for details"
+msgstr ""
+
+#: ../unattended-upgrade:773
+msgid ""
+"No '/usr/bin/mail' or '/usr/sbin/sendmail',can not send mail. You probably "
+"want to install the 'mailx' package."
+msgstr ""
+
+#: ../unattended-upgrade:786
+#, c-format
+msgid "[reboot required] unattended-upgrades result for '%s': %s"
+msgstr ""
+
+#: ../unattended-upgrade:789
+#, c-format
+msgid "unattended-upgrades result for '%s': '%s'"
+msgstr ""
+
+#: ../unattended-upgrade:791
+#, c-format
+msgid ""
+"Unattended upgrade returned: %s\n"
+"\n"
+msgstr ""
+
+#: ../unattended-upgrade:794
+msgid ""
+"Warning: A reboot is required to complete this upgrade.\n"
+"\n"
+msgstr ""
+
+#: ../unattended-upgrade:796
+msgid "Packages that were upgraded:\n"
+msgstr ""
+
+#: ../unattended-upgrade:798
+msgid "Packages that attempted to upgrade:\n"
+msgstr ""
+
+#: ../unattended-upgrade:802
+msgid "Packages with upgradable origin but kept back:\n"
+msgstr ""
+
+#: ../unattended-upgrade:807
+msgid "Package installation log:"
+msgstr ""
+
+#: ../unattended-upgrade:810
+msgid "Unattended-upgrades log:\n"
+msgstr ""
+
+#: ../unattended-upgrade:830
+#, c-format
+msgid "Writing dpkg log to '%s'"
+msgstr ""
+
+#: ../unattended-upgrade:985
+#, c-format
+msgid "package '%s' upgradable but fails to be marked for upgrade (%s)"
+msgstr ""
+
+#: ../unattended-upgrade:1049
+#, c-format
+msgid "Initial blacklisted packages: %s"
+msgstr ""
+
+#: ../unattended-upgrade:1054
+#, c-format
+msgid "Initial whitelisted packages: %s"
+msgstr ""
+
+#: ../unattended-upgrade:1057
+msgid "Starting unattended upgrades script"
+msgstr ""
+
+#: ../unattended-upgrade:1060
+#, c-format
+msgid "Allowed origins are: %s"
+msgstr ""
+
+#: ../unattended-upgrade:1073 ../unattended-upgrade:1074
+msgid "Unclean dpkg state detected, trying to correct"
+msgstr ""
+
+#: ../unattended-upgrade:1085
+#, c-format
+msgid ""
+"dpkg --configure -a output:\n"
+"%s"
+msgstr ""
+
+#: ../unattended-upgrade:1094
+msgid "Lock could not be acquired (another package manager running?)"
+msgstr ""
+
+#: ../unattended-upgrade:1096
+msgid "Cache lock can not be acquired, exiting"
+msgstr ""
+
+#: ../unattended-upgrade:1103 ../unattended-upgrade:1104
+msgid "Cache has broken packages, exiting"
+msgstr ""
+
+#: ../unattended-upgrade:1141
+#, c-format
+msgid "GetArchives() failed: '%s'"
+msgstr ""
+
+#: ../unattended-upgrade:1151 ../unattended-upgrade:1152
+#, c-format
+msgid "An error occurred: '%s'"
+msgstr ""
+
+#: ../unattended-upgrade:1154 ../unattended-upgrade:1156
+#, c-format
+msgid "The URI '%s' failed to download, aborting"
+msgstr ""
+
+#: ../unattended-upgrade:1160
+#, c-format
+msgid "Download finished, but file '%s' not there?!?"
+msgstr ""
+
+#: ../unattended-upgrade:1176 ../unattended-upgrade:1180
+#, c-format
+msgid "Package '%s' has conffile prompt and needs to be upgraded manually"
+msgstr ""
+
+#: ../unattended-upgrade:1206
+#, c-format
+msgid "package '%s' not upgraded"
+msgstr ""
+
+#: ../unattended-upgrade:1221
+#, c-format
+msgid "Packages that are auto removed: '%s'"
+msgstr ""
+
+#: ../unattended-upgrade:1230
+msgid "No packages found that can be upgraded unattended"
+msgstr ""
+
+#: ../unattended-upgrade:1252
+#, c-format
+msgid "Packages that will be upgraded: %s"
+msgstr ""
+
+#: ../unattended-upgrade:1297
+msgid "print debug messages"
+msgstr ""
+
+#: ../unattended-upgrade:1300
+msgid "make apt/libapt print verbose debug messages"
+msgstr ""
+
+#: ../unattended-upgrade:1303
+msgid "print info messages"
+msgstr ""
+
+#: ../unattended-upgrade:1306
+msgid "Simulation, download but do not install"
+msgstr ""
+
+#: ../unattended-upgrade:1309
+msgid "Upgrade in minimal steps (and allow interrupting with SIGINT"
+msgstr ""
+
+#: ../unattended-upgrade:1318
+msgid "You need to be root to run this application"
+msgstr ""
+
+#: ../unattended-upgrade-shutdown:72
+msgid "Unattended-upgrade in progress during shutdown, sleeping for 5s"
+msgstr ""
+
+#: ../unattended-upgrade-shutdown:125
+msgid "Running unattended-upgrades in shutdown mode"
+msgstr ""
+
+#: ../unattended-upgrade-shutdown:153
+#, c-format
+msgid "Giving up on lockfile after %s delay"
+msgstr ""
