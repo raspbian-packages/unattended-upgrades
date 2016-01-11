@@ -1,0 +1,16 @@
+
+Start-Date: 2015-11-23  06:04:32
+Upgrade: test-package:amd64 (1.0, 2.0)
+End-Date: 2015-11-23  06:04:32
+
+Start-Date: 2015-11-23  06:04:32
+Remove: test-package-dependency:amd64 (1.0)
+End-Date: 2015-11-23  06:04:32
+
+Start-Date: 2015-11-23  06:04:32
+Upgrade: test-package:amd64 (1.0, 2.0)
+End-Date: 2015-11-23  06:04:32
+
+Start-Date: 2015-11-23  06:04:33
+Remove: test-package-dependency:amd64 (1.0)
+End-Date: 2015-11-23  06:04:33
