@@ -1,0 +1,9 @@
+2016-04-29 22:12:45,946 INFO Initial blacklisted packages: 
+2016-04-29 22:12:45,946 INFO Initial whitelisted packages: 
+2016-04-29 22:12:45,947 INFO Starting unattended upgrades script
+2016-04-29 22:12:45,947 INFO Allowed origins are: ['o=Ubuntu,a=lucid-security']
+2016-04-29 22:12:46,016 INFO Packages that will be upgraded: test-package
+2016-04-29 22:12:46,016 INFO Writing dpkg log to './root.unused-deps/var/log/unattended-upgrades/unattended-upgrades-dpkg.log'
+2016-04-29 22:12:46,369 INFO All upgrades installed
+2016-04-29 22:12:46,386 INFO Packages that are auto removed: 'test-package-dependency'
+2016-04-29 22:12:46,636 INFO Packages were successfully auto-removed
