@@ -1,0 +1,32 @@
+
+Start-Date: 2016-12-11  11:45:02
+Upgrade: test-package:amd64 (1.0.test.pkg, 2.0.test.pkg)
+End-Date: 2016-12-11  11:45:02
+
+Start-Date: 2016-12-11  11:45:02
+Remove: test-package-dependency:amd64 (1.0), old-unused-dependency:amd64 (1.0)
+End-Date: 2016-12-11  11:45:02
+
+Start-Date: 2016-12-11  11:45:03
+Upgrade: test-package:amd64 (1.0.test.pkg, 2.0.test.pkg)
+End-Date: 2016-12-11  11:45:03
+
+Start-Date: 2016-12-11  11:45:03
+Remove: test-package-dependency:amd64 (1.0)
+End-Date: 2016-12-11  11:45:03
+
+Start-Date: 2016-12-11  11:45:03
+Upgrade: test-package:amd64 (1.0.test.pkg, 2.0.test.pkg)
+End-Date: 2016-12-11  11:45:04
+
+Start-Date: 2016-12-11  11:45:04
+Remove: test-package-dependency:amd64 (1.0), old-unused-dependency:amd64 (1.0)
+End-Date: 2016-12-11  11:45:04
+
+Start-Date: 2016-12-11  11:45:04
+Upgrade: test-package:amd64 (1.0.test.pkg, 2.0.test.pkg)
+End-Date: 2016-12-11  11:45:04
+
+Start-Date: 2016-12-11  11:45:04
+Remove: test-package-dependency:amd64 (1.0)
+End-Date: 2016-12-11  11:45:04
