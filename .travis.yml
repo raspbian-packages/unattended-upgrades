@@ -1,0 +1,23 @@
+# This provides integration into the travis-ci.org CI system. For a overview
+# check http://about.travis-ci.org/docs/user/getting-started/
+# 
+# Some notes:
+# - language is "C" because the travis chroot for python installs a non-repo
+#   python3.3 from a PPA
+sudo: required
+dist: trusty
+language: c
+before_install:
+ - sudo apt-get update
+ - sudo apt-get build-dep unattended-upgrades
+ - sudo apt-get install -y dh-systemd fakeroot python3-mock python3-distro-info
+ - which python3
+ - sudo apt-get install python3-pip
+ - sudo python3 -m pip install -U mypy coverage
+# travis is "funny" it has a non-distro python3 that will not find
+# python modules installed via apt-get
+# note that tests are run during package build
+script:
+  - dpkg-buildpackage -d -us -uc -rfakeroot
+  - sudo dpkg -i ../unattended-upgrades_*.deb
+  - sudo unattended-upgrades --help
