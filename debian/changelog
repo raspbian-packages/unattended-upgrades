@@ -1,3 +1,80 @@
+unattended-upgrades (2.12) unstable; urgency=medium
+
+  [ middlingphys ]
+  * update japanese translation
+
+  [ Chris Hofstaedtler ]
+  * Install systemd-sleep part into /usr/lib (Closes: #1073745)
+
+  [ Adam Chovanec ]
+  * document missing option in the readme
+
+  [ Michael Vogt ]
+  * u-u: supress "DeprecationWarning" about fork() and multithreading
+  * test: create fake etc/apt/preferences.d to silence test warnings
+  * u-u: import "email.genators" package early as workaround
+  * data/50unattended-upgrades.md5sum: Update for config file changes
+
+  [ Kenyon Ralph ]
+  * unattended-upgrade-shutdown: fix typo in documentation
+
+  [ Wesley Schwengle ]
+  * Correct examples for Debian backports (Closes: #940151)
+
+  [ Marekjdj ]
+  * Fixed small typo in '50unattended-upgrades' config files.
+
+  [ Remus-Gabriel Chelu ]
+  * [INTL:ro] Romanian debconf templates translation of unattended-upgrades
+    (Closes: #1033760)
+
+  [ Atila KOÇ ]
+  * [INTL:tr] turkish debconf translation update (Closes: #1031852)
+
+  [ Camaleón ]
+  * [INTL:es] Spanish translation of the debconf template (Closes: #1029026)
+
+ -- Michael Vogt <mvo@debian.org>  Wed, 01 Jan 2025 18:22:25 +0100
+
+unattended-upgrades (2.11+nmu1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Install systemd-sleep part into /usr/lib. (Closes: #1073745)
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 03 Sep 2024 14:46:13 +0200
+
+unattended-upgrades (2.11) unstable; urgency=medium
+
+  [ Alexandre Detiste ]
+  * python2 cleaup
+  * flake8
+
+  [ Michael Vogt ]
+  * u-u: implement plugin system with `postrun()` functionality
+  * debian: switch to pytest in `debian/rules` and `test/Makefile`
+  * debian/tests: pass `-Zgzip` to dpkg-deb to avoid errors in tests
+  * unattended-upgrades: add debug output after run(), conffile prompt
+  * tests: workaround conffile prompt in "ubuntu-advanage-tools"
+
+ -- Michael Vogt <mvo@debian.org>  Sun, 26 May 2024 22:17:35 +0200
+
+unattended-upgrades (2.10) unstable; urgency=medium
+
+  * setup: add `packages=[]` to fix setuptools being confused
+  * test: rework and modernize to run with pytest
+  * mypy: fix/update type annotations
+  * po/ru.po: update plural forms
+
+ -- Michael Vogt <mvo@debian.org>  Mon, 12 Feb 2024 12:05:10 +0100
+
+unattended-upgrades (2.9.1+nmu4) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Don't run pyflakes, it dropped support for type comments.
+    (Closes: #1058172)
+
+ -- Stefano Rivera <stefanor@debian.org>  Mon, 22 Jan 2024 16:11:59 -0400
+
 unattended-upgrades (2.9.1+nmu3) unstable; urgency=medium
 
   * test: don't confuse -dbg and -unsigned with current running kernel

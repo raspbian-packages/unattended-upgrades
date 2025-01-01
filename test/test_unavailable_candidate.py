@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-
-from mock import Mock
+from unittest.mock import Mock
 
 from unattended_upgrade import calculate_upgradable_pkgs
+from test.test_base import TestBase
 
 
-class TestUnavailableCandidate(unittest.TestCase):
+class TestUnavailableCandidate(TestBase):
 
     def test_if_pkg_candidate_is_unavailable_then_pkg_is_not_considered(self):
         origin = Mock()

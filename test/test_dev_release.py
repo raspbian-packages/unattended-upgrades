@@ -1,24 +1,13 @@
 #!/usr/bin/python3
 
 import datetime
-import logging
 import os
 import unittest
 
 import apt
 
+from test.test_base import TestBase, MockOptions
 import unattended_upgrade
-
-apt.apt_pkg.config.set("APT::Architecture", "amd64")
-
-
-class MockOptions(object):
-    debug = True
-    verbose = False
-    dry_run = True
-    apt_debug = False
-    minimal_upgrade_steps = False
-    download_only = False
 
 
 class MockDistroAuto(object):
@@ -60,32 +49,26 @@ class MockDistroInfoModule(object):
     def __init__(self, ubuntu):
         self.UbuntuDistroInfo = ubuntu
 
+    DistroRelease = object
 
-class TestUntrusted(unittest.TestCase):
+
+class TestDevRelease(TestBase):
 
     def setUp(self):
+        TestBase.setUp(self)
         apt.apt_pkg.config.set("Unattended-Upgrade::"
                                "Skip-Updates-On-Metered-Connections",
                                "false")
         apt.apt_pkg.config.set("Unattended-Upgrade::OnlyOnAcPower",
                                "false")
-        unattended_upgrade.LOCK_FILE = "./u-u.lock"
-        self.rootdir = os.path.abspath("./root.untrusted")
+        self.rootdir = self.make_fake_aptroot(
+            template=os.path.join(self.testdir, "root.untrusted"))
         self.log = os.path.join(
             self.rootdir, "var", "log", "unattended-upgrades",
             "unattended-upgrades.log")
-
         self.apt_conf = os.path.join(self.rootdir, "etc", "apt",
                                      "apt.conf")
-
-        os.rename(self.apt_conf, self.apt_conf + ".bak")
-        for hdlr in logging.root.handlers:
-            hdlr.close()
-        logging.root.handlers = []
-
-    def tearDown(self):
-        os.remove(self.log)
-        os.rename(self.apt_conf + ".bak", self.apt_conf)
+        self.mock_distro("Ubuntu", "artful", "Artful Aardvark (development branch)")
 
     def write_config(self, devrelease):
         with open(self.apt_conf, "w") as fp:
@@ -99,7 +82,6 @@ Unattended-Upgrade::OnlyOnAcPower "false";
 
         # run it
         options = MockOptions()
-        unattended_upgrade.DISTRO_DESC = "Artful Aardvark (development branch)"
         unattended_upgrade.main(options, rootdir=self.rootdir)
         # read the log to see what happend
         with open(self.log) as f:
@@ -116,9 +98,6 @@ Unattended-Upgrade::OnlyOnAcPower "false";
         unattended_upgrade.distro_info = MockDistroInfoModule(MockDistroAuto)
 
         options = MockOptions()
-        unattended_upgrade.DISTRO_DESC = "Artful Aardvark (development branch)"
-        unattended_upgrade.DISTRO_CODENAME = "artful"
-        unattended_upgrade.DISTRO_ID = "ubuntu"
         unattended_upgrade.main(options, rootdir=self.rootdir)
         # read the log to see what happend
         with open(self.log) as f:
@@ -135,9 +114,6 @@ Unattended-Upgrade::OnlyOnAcPower "false";
         unattended_upgrade.distro_info = MockDistroInfoModule(MockDistroNoAuto)
 
         options = MockOptions()
-        unattended_upgrade.DISTRO_DESC = "Artful Aardvark (development branch)"
-        unattended_upgrade.DISTRO_CODENAME = "artful"
-        unattended_upgrade.DISTRO_ID = "ubuntu"
         unattended_upgrade.main(options, rootdir=self.rootdir)
         # read the log to see what happend
         with open(self.log) as f:
@@ -151,12 +127,9 @@ Unattended-Upgrade::OnlyOnAcPower "false";
         """The devel series has no release update, so do updates"""
         self.write_config("auto")
         # run it
-        unattended_upgrade.distro_info = MockDistroInfoModule(MockDistroNoAuto)
+        unattended_upgrade.distro_info = MockDistroInfoModule(MockDistroNoRelease)
 
         options = MockOptions()
-        unattended_upgrade.DISTRO_DESC = "Artful Aardvark (development branch)"
-        unattended_upgrade.DISTRO_CODENAME = "artful"
-        unattended_upgrade.DISTRO_ID = "ubuntu"
         unattended_upgrade.main(options, rootdir=self.rootdir)
         # read the log to see what happend
         with open(self.log) as f:

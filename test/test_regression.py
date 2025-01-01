@@ -1,22 +1,22 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import apt_pkg
-apt_pkg.config.set("Dir", "./aptroot")
 import io
 import os
-import sys
 import tempfile
 import unittest
-
-from mock import (
+from unittest.mock import (
     Mock,
     patch,
 )
 
+import apt_pkg
+
 from unattended_upgrade import do_install
+from test.test_base import TestBase
 
 from typing import List
+List  # flake8
 
 
 class MockCache(dict):
@@ -33,9 +33,8 @@ class MockCache(dict):
         return
 
 
-class TestRegression(unittest.TestCase):
+class TestRegression(TestBase):
 
-    @unittest.skipIf(sys.version_info[0] != 3, "only works on py3")
     @patch("unattended_upgrade.upgrade_normal")
     def test_do_install_fail_unicode_write(self, mock_upgrade_normal):
         """ test if the substitute function works """

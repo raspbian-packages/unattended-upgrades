@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 chroot_dir=$AUTOPKGTEST_TMP/chroot
 start_date=20200309T000000Z
@@ -11,7 +11,7 @@ distro=sid
 
 check_arch
 
-dpkg-buildpackage -us -uc 2>&1
+UU_BUILDDEB_ARGS="-Zgzip" dpkg-buildpackage -us -uc 2>&1
 do_debootstrap "$distro" "$chroot_dir" "http://snapshot.debian.org/archive/debian/$start_date/ unstable main"
 
 sed -i 's/^deb /deb [check-valid-until=no] /' "$chroot_dir/etc/apt/sources.list"

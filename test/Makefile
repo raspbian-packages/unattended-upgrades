@@ -6,16 +6,9 @@ test-packages:
 	$(MAKE) -C packages
 
 check: test-packages
-	set -e; \
-	find . -name 'test_*.py' | \
-	while read file; do \
-	    if [ -x $$file ]; then \
-		echo "Running $$file with python3"; \
-	    	python3 $$file 2>&1; \
-		echo "Running $$file with python3-coverage"; \
-		python3 -m coverage run -a $$file 2>&1; \
-	    fi \
-	done
+	#PYTHONPATH=.. python3 -m unittest
+	PYTHONPATH=.. coverage run -a -m pytest
+	PYTHONPATH=.. coverage report unattended_upgrade.py
 
 clean:
 	$(MAKE) -C packages clean
@@ -25,5 +18,4 @@ clean:
 	find .. -type d -name __pycache__ | xargs rm -rf
 
 coverage-html:
-	echo "output in htmlcov/
 	python3 -m coverage html

@@ -106,6 +106,13 @@ your needs. If you do not have this file, just create it or
 create/edit /etc/apt/apt.conf - you can check your configuration by
 running "apt-config dump".
 
+Plugin support
+--------------
+
+Plugin support is available to integrate with webhooks or other custom
+tools that need to read u-u run results. Check the [example plugin](https://github.com/mvo5/unattended-upgrades/blob/master/examples/plugins/simple.py)
+in the git repository for more details.
+
 
 Supported Options Reference
 ---------------------------
@@ -232,6 +239,16 @@ Supported Options Reference
 * `Unattended-Upgrade::Automatic-Reboot-WithUsers` - boolean (default:True)
 
  Automatically reboot even if users are logged in.
+
+* `Unattended-Upgrade::Automatic-Reboot-Time` - time (default:"now")
+
+If automatic reboot is enabled and needed, reboot at the specific
+time instead of immediately.
+
+Example - reboot at 02:00:
+```
+Unattended-Upgrade::Automatic-Reboot-Time "02:00";
+```
 
 * `Unattended-Upgrade::Keep-Debs-After-Install` - boolean (default:False)
 
