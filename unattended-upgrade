@@ -875,7 +875,6 @@ def signal_handler(signal, frame):
 
 def log_once(msg):
     # type: (str) -> None
-    global logged_msgs
     if msg not in logged_msgs:
         logging.info(msg)
         logged_msgs.add(msg)  # type: ignore
