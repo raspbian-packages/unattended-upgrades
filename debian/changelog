@@ -1,10 +1,10 @@
-unattended-upgrades (2.12+nmu1) UNRELEASED; urgency=medium
+unattended-upgrades (2.12+nmu1) unstable; urgency=medium
 
   * Non-maintainer upload.
   * Remove unnecessary `global` statement, fixing flake8 test (closes:
     #1125393).
 
- -- Colin Watson <cjwatson@debian.org>  Thu, 22 Jan 2026 10:55:30 +0000
+ -- Colin Watson <cjwatson@debian.org>  Thu, 22 Jan 2026 11:03:52 +0000
 
 unattended-upgrades (2.12) unstable; urgency=medium
 
