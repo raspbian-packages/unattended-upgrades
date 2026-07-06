@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import unittest
+from unittest.mock import Mock
+
+from unattended_upgrade import transitive_dependencies
+
+
+class TestDependencies(unittest.TestCase):
+
+    def _get_pkg_with_deps(self, *dep_names):
+        pkg = Mock()
+        pkg.candidate = Mock()
+        pkg.candidate.dependencies = []
+        for dep_name in dep_names:
+            # Mock(name=...) sets the mock's repr, not its .name attribute;
+            # assign .name explicitly so base_dep.name returns the string.
+            dep = Mock(rawtype="Depends")
+            dep.name = dep_name
+            pkg.candidate.dependencies.append([dep])
+        return pkg
+
+    def test_transitive_dependencies_keeps_independent_calls_separate(self):
+        cache = {}
+        first_pkg = self._get_pkg_with_deps("first-dependency")
+        second_pkg = self._get_pkg_with_deps("second-dependency")
+
+        self.assertEqual(
+            {"first-dependency"}, transitive_dependencies(first_pkg, cache))
+        self.assertEqual(
+            {"second-dependency"}, transitive_dependencies(second_pkg, cache))
+
+
+if __name__ == "__main__":
+    unittest.main()
